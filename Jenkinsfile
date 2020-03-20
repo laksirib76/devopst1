@@ -1,14 +1,9 @@
 pipeline {
-  agent {
-    node {
-      label 'dl1'
-    }
-
-  }
+  agent none
   stages {
     stage('Build') {
       steps {
-        sh 'clean install -Dlicense.skip=true'
+        sh 'mvn clean install -Dlicense.skip=true'
       }
     }
 

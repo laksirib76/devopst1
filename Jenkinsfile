@@ -6,9 +6,9 @@ pipeline {
 
   }
   stages {
+    def mvn_version = 'maven3'
     stage('Build') {
-      def mvn_version = 'maven3'
-      steps {
+         steps {
         sh 'sh \'mvn clean install -Dlicense.skip=true\''
       }
     }

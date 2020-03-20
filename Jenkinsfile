@@ -1,15 +1,16 @@
 pipeline {
-  agent {
-    node {
-      label 'dl1'
+   agent {
+    node {label 'dl1'}
+        }
+    tools {
+        maven 'maven3'
     }
-  }
   stages {
- stage('Build') {
-        def mvn_version = 'maven3'
-        withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-        sh 'mvn clean install'
-         }
- }
-   }
+      stage('Build') {
+         steps {
+        sh 'vn clean install -Dlicense.skip=true'
+      }
+    }
+
+  }
 }
